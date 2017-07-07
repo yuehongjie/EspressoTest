@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="#fff" />
+
+    <!-- 这里定义的是边框显 可以根据实际情况选择是否需要 -->
+    <!--<stroke
+        android:width="3dp"
+        android:color="@color/colorAccent"
+        android:dashGap="5dp"
+        android:dashWidth="7dp"/>-->
+</shape>

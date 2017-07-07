@@ -1,9 +1,11 @@
 package com.yu.espressotest;
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         tvResult = (TextView) findViewById(R.id.tv_result);
         tvTimer = (TextView) findViewById(R.id.tv_timer);
+
+        tvResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ListActivity.class));
+            }
+        });
     }
 
     private void initData() {

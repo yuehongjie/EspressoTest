@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:color="@color/colorAccent"
+    tools:targetApi="lollipop">
+    <!--
+    color 属性指定点击时水波纹的颜色，但跟背景色重叠在一起，颜色看起来有变化
+    target 属性指定最低版本，这里是 5.0 -->
+
+    <!-- 正常情况下的背景图 -->
+    <item android:drawable="@drawable/shape_background"/>
+
+</ripple>
