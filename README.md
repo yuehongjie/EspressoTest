@@ -1399,6 +1399,8 @@ appCompatViewPager.perform(swipeLeft()).perform(swipeLeft());
 TabLayout 经常和 ViewPager 配合使用，用于显示所有的 ViewPager 的名称，及快速切换到某一个界面，如果只是使用上面的 ViewPager 执行左右滑动的操作，想滑到最后一个界面，需要执行很多次 swipe 操作，而且可能没有确切的边界。
 所以如果可以对 TabLayout 直接进行某个标签的选择，那么效率很高很多...
 
+参考 https://github.com/MyWay/TabLayoutTest
+
 
 ```
 
