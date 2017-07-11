@@ -3,13 +3,14 @@
 Espresso 是 Google 自家的 UI 测试框架，google 也很推荐开发者去使用，而且在高版本的 android studio 中会自动引入测试包。
 
 
-官方链接：https://google.github.io/android-testing-support-library/
+官方链接：https://google.github.io/android-testing-support-library/docs/espresso/index.html
 
 中文翻译：http://www.jianshu.com/p/ef4ad5424784
 
 Google Training： https://developer.android.com/training/testing/ui-testing/espresso-testing.html
 
 测试支持库 API ：https://developer.android.com/topic/libraries/testing-support-library/index.html
+
 
 Espresso有三种重要体系的类：Matchers(匹配器)、ViewAction(界面行为)、ViewAssertions(界面判断)
 - Matchers：是通过匹配条件来查找 UI 组件或过滤 UI
@@ -1377,7 +1378,9 @@ public class WebActivityTest {
 
 ## 八、其他测试
 
-1. Android 中最常用的控件还有 ViewPager，可以左右滑动切换界面，这时可以使用 swipeLeft() 或者 swipeRight() 进行界面的切换。如
+**1. ViewPager 测试**
+
+Android 中最常用的控件还有 ViewPager，可以左右滑动切换界面，这时可以使用 swipeLeft() 或者 swipeRight() 进行界面的切换。如
 
 
 ```
@@ -1391,7 +1394,21 @@ appCompatViewPager.perform(swipeLeft()).perform(swipeLeft());
 ```
 
 
-2. TabLayout(标签) 如何进行测试，我现在也还没有思路...
+**2. TabLayout 测试**
+
+TabLayout 经常和 ViewPager 配合使用，用于显示所有的 ViewPager 的名称，及快速切换到某一个界面，如果只是使用上面的 ViewPager 执行左右滑动的操作，想滑到最后一个界面，需要执行很多次 swipe 操作，而且可能没有确切的边界。
+所以如果可以对 TabLayout 直接进行某个标签的选择，那么效率很高很多...
+
+
+```
+
+// 找到 TabLayout 中名为 “标签1”的页签，执行点击操作
+onView(allOf(withText("标签1"), isDescendantOfA(withId(R.id.tab_layout))))
+                .perform(click())
+                .check(matches(isDisplayed()));
+
+```
+
 
 
 ## 九、源码
