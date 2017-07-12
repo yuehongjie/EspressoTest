@@ -1140,9 +1140,9 @@ public class WebActivity extends AppCompatActivity {
     private void initWebView() {
         mWebView = (WebView) findViewById(R.id.webview);
 
-        //mWebView.loadUrl(mUrl);//测试传递进来的 url 
+        mWebView.loadUrl(mUrl);//测试传递进来的 url 
 
-        mWebView.loadUrl(LOCAL_URL);
+        //mWebView.loadUrl(LOCAL_URL);
 
         //设置 WebView
         WebSettings settings = mWebView.getSettings();
