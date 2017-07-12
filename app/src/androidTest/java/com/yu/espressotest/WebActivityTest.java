@@ -5,6 +5,7 @@ import android.support.test.espresso.web.webdriver.Locator;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,8 @@ import static org.hamcrest.Matchers.containsString;
 @LargeTest
 public class WebActivityTest {
 
+    private String LOCAL_UR;
+
     //参数 3 指定是否自动加载 WebActivity
     @Rule
     public ActivityTestRule<WebActivity> mActivityRule = new ActivityTestRule<WebActivity>(WebActivity.class, false, false) {
@@ -39,12 +42,18 @@ public class WebActivityTest {
         }
     };
 
+    @Before
+    public void initData(){
+        //本地 html
+       LOCAL_UR ="file:///android_asset/test_web.html";
+    }
+
     @Test
     public void testWeb() {
 
         //使用 Intent 传递数据
         Intent intent = new Intent();
-        intent.putExtra("url", "https://www.baidu.com/s?wd=0");
+        intent.putExtra("url", LOCAL_UR);
 
         //懒启动 Activity
         mActivityRule.launchActivity(intent);

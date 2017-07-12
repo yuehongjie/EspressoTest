@@ -1,5 +1,6 @@
 package com.yu.espressotest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +54,10 @@ public class ListActivity extends AppCompatActivity{
             @Override
             public void onItemClick(int pos) {
                 Toast.makeText(ListActivity.this, "点击了 " + mDataList.get(pos), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(ListActivity.this, WebActivity.class);
+                intent.putExtra("url", "https://www.baidu.com/s?wd=" + pos);
+                startActivity(intent);
             }
         });
         mRecyclerView.setAdapter(adapter);
