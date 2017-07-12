@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Espresso test Web</title>
+        <meta charset="utf-8"/>
+
+        <style type="text/css">
+            h1 {color: red; font-size:80px;margin:0 auto;text-align:center;}
+            p {color: blue; font-size:180px;margin:0 auto;text-align:center;margin-top: 80px; margin-bottom: 80px;}
+            button {width: 400px; height: 180px;font-size:100px;}
+        </style>
+
+    </head>
+    <body>
+
+        <h1 >Hello Espresso Web!</h1>
+
+        <!-- 显示结果的元素 id 是 p_value -->
+        <p id="p_value">Value</p>
+
+        <!-- 按钮的 id 是 web_btn -->
+        <center><button type="button" id="web_btn" onclick="testClick()" >使劲儿</button></center>
+        <script type="text/javascript">
+
+            var x = 0;
+
+            function testClick() {
+            x = x + 1;
+            document.getElementById("p_value").innerHTML = x;
+
+            //调用 Android 代码弹出吐司提示
+            android.showToast("web test " + x);
+            }
+        </script>
+    </body>
+
+</html>
